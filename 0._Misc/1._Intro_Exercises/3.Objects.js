@@ -47,4 +47,9 @@ console.log(thisSong.about);
 
 // --------------------------------------
 
+const value1 = '100';
+const value2 = 5;
+let sum = value1 + value2;
+
+console.log(sum);
 

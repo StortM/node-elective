@@ -50,7 +50,8 @@ const fact = "You are learning javascript!";
 
 // capitalize the J in Javascript
 
-var newString = fact.replace(/j/,"J");
+const newString = fact.replace(/j/,"J");
 console.log(newString);
 
 // --------------------------------------
+
