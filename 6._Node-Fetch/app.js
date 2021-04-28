@@ -16,7 +16,8 @@ const fetch = require('node-fetch');
 app.get("/proxy", (req, res) => {
     fetch("https://google.com")
     .then(res => res.text())
-    .then(text => res.send(text));
+    .then(text => res.send(text))
+    .catch(err => console.log(err));
 });
 
 const port = process.env.PORT || 8080;

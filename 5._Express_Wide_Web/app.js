@@ -3,6 +3,9 @@ const app = express();
 
 app.use(express.static('public'));
 
+const fetch = require('node-fetch');
+
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/welcome/welcome.html");
 });
@@ -32,6 +35,13 @@ app.get("/candle", (req, res) => {
 
 app.get("/catfacts", (req, res) => {
     res.sendFile(__dirname + "/public/catfacts/catfacts.html");
+});
+
+app.get("/proxy", (req, res) => {
+    fetch("https://google.com")
+    .then(res => res.textConverted())
+    .then(text => res.send(text))
+    .catch(err => console.log(err));
 });
 
 const port = process.env.PORT || 8080;
