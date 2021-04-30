@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+</head>
+<body>
+    Colors of what?
+    <input id = "colorPicker" type="color">
+    <button onclick="sendColor()">Send color</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // todo create the client socket and connected to the server socket below
+        const socket = io();
+
+        function sendColor(){
+            // log the color of the inout field here
+            const color = document.getElementById('colorPicker').value;
+
+            socket.emit("colorChanged", { color });
+        }
+
+        socket.on("changeBackgroundToThisColor", (data) => {
+            document.body.style.backgroundColor = data.color;
+        });
+
+    </script>
+</body>
+</html>
